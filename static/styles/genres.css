@@ -1,0 +1,103 @@
+body {
+	font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
+}
+
+#allcontent {
+	width: 900px;
+	margin: 0 auto;
+	padding: 0 30px;
+	border-left: thin dotted;
+	border-right: thin dotted;
+	min-height: 800px;
+}
+
+a {
+	font-weight: bold;
+	color: #666;
+	text-decoration: none;
+}
+
+h2 {
+	color: #333;
+	margin-bottom: 0;
+	font-style: italic;
+}
+
+#creators {
+	margin-top: -40px;
+	text-align: right;
+}
+
+.smallcaps {
+	font-variant: small-caps;
+}
+
+.notebene {
+	font-weight: bold;
+	color: #333;
+}
+
+#wrapper {
+	border-top: thin dotted;
+}
+
+#main {
+	width: 670px;
+	float: left;
+	font-size: 1.1em;
+
+}
+
+#sidebar {
+	width: 200px;
+	float: right;
+	padding-left: 20px;
+	border-left: thin dotted;
+	font-size: .8em;
+}
+
+#sidebar ul{
+	list-style-type: none;
+	margin-left: -40px;
+}
+
+#sidebar ul li{
+	margin-bottom: 5px;
+}
+
+#gallery {
+	border-top: thin dotted;
+	clear:both;
+}
+
+#gallery table {
+	margin: 0 auto;
+}
+
+#gallery table td{
+	padding: 30px;
+}
+
+p.caption {
+	font-size: .9em;
+	font-weight: bold;
+	color: #333;
+	margin-top: -5px;
+	padding: 5px;
+	width: 200px;
+	line-height: .95em;
+	background-color: #eee;
+}
+
+#footer {
+	border-top: thin dotted;
+}
+
+#footer p {
+	float: left;
+}
+
+#footer_credits {
+	float: right;
+	padding-top: 10px;
+}
