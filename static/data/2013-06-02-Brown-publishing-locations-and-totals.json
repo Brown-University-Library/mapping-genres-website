@@ -1,0 +1,1589 @@
+{
+  "rows" : [
+    {
+      "Name" : "Massachusetts, Boston",
+      "TotalPublished" : 12215,
+      "coordinates":[-71.0597732,42.3584308]
+    },
+    {
+      "Name" : "Pennsylvania, Philadelphia",
+      "TotalPublished" : 10864,
+      "coordinates":[-75.16378900000001,39.952335]
+    },
+    {
+      "Name" : "New York, New York",
+      "TotalPublished" : 4743,
+      "coordinates":[-74.00597309999999,40.7143528]
+    },
+    {
+      "Name" : "Mexico, Mexico City",
+      "TotalPublished" : 1726,
+      "coordinates":[-99.133208,19.4326077]
+    },
+    {
+      "Name" : "Rhode Island, Providence",
+      "TotalPublished" : 1291,
+      "coordinates":[-71.4128343,41.8239891]
+    },
+    {
+      "Name" : "Connecticut, New London",
+      "TotalPublished" : 1100,
+      "coordinates":[-72.0995209,41.3556539]
+    },
+    {
+      "Name" : "Connecticut, Hartford",
+      "TotalPublished" : 1086,
+      "coordinates":[-72.6850932,41.76371109999999]
+    },
+    {
+      "Name" : "Connecticut, New Haven",
+      "TotalPublished" : 884,
+      "coordinates":[-72.9281577,41.3081527]
+    },
+    {
+      "Name" : "Rhode Island, Newport",
+      "TotalPublished" : 817,
+      "coordinates":[-71.3128285,41.4901024]
+    },
+    {
+      "Name" : "Peru, Lima",
+      "TotalPublished" : 767,
+      "coordinates":[-77.0622028,-12.0478158]
+    },
+    {
+      "Name" : "Massachusetts, Worcester",
+      "TotalPublished" : 670,
+      "coordinates":[-71.8022934,42.2625932]
+    },
+    {
+      "Name" : "New Hampshire, Portsmouth",
+      "TotalPublished" : 571,
+      "coordinates":[-70.7625532,43.0717552]
+    },
+    {
+      "Name" : "South Carolina, Charleston",
+      "TotalPublished" : 517,
+      "coordinates":[-79.93092159999999,32.7765656]
+    },
+    {
+      "Name" : "Massachusetts, Newburyport",
+      "TotalPublished" : 505,
+      "coordinates":[-70.87727509999999,42.8125913]
+    },
+    {
+      "Name" : "Maryland, Annapolis",
+      "TotalPublished" : 495,
+      "coordinates":[-76.4921829,38.9784453]
+    },
+    {
+      "Name" : "Maryland, Baltimore",
+      "TotalPublished" : 486,
+      "coordinates":[-76.6121893,39.2903848]
+    },
+    {
+      "Name" : "Pennsylvania, Germantown",
+      "TotalPublished" : 420,
+      "coordinates":[-75.1749671,40.028521]
+    },
+    {
+      "Name" : "Massachusetts, Cambridge",
+      "TotalPublished" : 415,
+      "coordinates":[-71.10973349999999,42.3736158]
+    },
+    {
+      "Name" : "Virginia, Williamsburg",
+      "TotalPublished" : 406,
+      "coordinates":[-76.7074571,37.2707022]
+    },
+    {
+      "Name" : "Connecticut, Norwich",
+      "TotalPublished" : 390,
+      "coordinates":[-72.07591049999999,41.5242649]
+    },
+    {
+      "Name" : "Massachusetts, Salem",
+      "TotalPublished" : 382,
+      "coordinates":[-70.8967155,42.51954]
+    },
+    {
+      "Name" : "Virginia, Richmond",
+      "TotalPublished" : 346,
+      "coordinates":[-77.4360481,37.5407246]
+    },
+    {
+      "Name" : "Delaware, Wilmington",
+      "TotalPublished" : 336,
+      "coordinates":[-75.5466667,39.7458333]
+    },
+    {
+      "Name" : "New York, Albany",
+      "TotalPublished" : 335,
+      "coordinates":[-73.7562317,42.6525793]
+    },
+    {
+      "Name" : "New Hampshire, Exeter",
+      "TotalPublished" : 323,
+      "coordinates":[-70.9477546,42.9814292]
+    },
+    {
+      "Name" : "Pennsylvania, Lancaster",
+      "TotalPublished" : 263,
+      "coordinates":[-76.3055144,40.0378755]
+    },
+    {
+      "Name" : "New Jersey, Trenton",
+      "TotalPublished" : 259,
+      "coordinates":[-74.7429384,40.2170534]
+    },
+    {
+      "Name" : "Haiti, Port-au-prince",
+      "TotalPublished" : 161,
+      "coordinates":[-72.336408,18.539269]
+    },
+    {
+      "Name" : "Vermont, Windsor",
+      "TotalPublished" : 159,
+      "coordinates":[-72.3865679,43.4799996]
+    },
+    {
+      "Name" : "Vermont, Bennington",
+      "TotalPublished" : 154,
+      "coordinates":[-73.19680009999999,42.878094]
+    },
+    {
+      "Name" : "North Carolina, Newbern",
+      "TotalPublished" : 144,
+      "coordinates":[-77.04411429999999,35.108493]
+    },
+    {
+      "Name" : "Georgia, Savannah",
+      "TotalPublished" : 138,
+      "coordinates":[-81.09983419999999,32.0835407]
+    },
+    {
+      "Name" : "Massachusetts, Watertown",
+      "TotalPublished" : 135,
+      "coordinates":[-71.1828321,42.3709299]
+    },
+    {
+      "Name" : "New Jersey, Burlington",
+      "TotalPublished" : 131,
+      "coordinates":[-74.84091959999999,40.06473769999999]
+    },
+    {
+      "Name" : "Connecticut, Litchfield",
+      "TotalPublished" : 124,
+      "coordinates":[-73.1887165,41.7472642]
+    },
+    {
+      "Name" : "Maine, Portland",
+      "TotalPublished" : 114,
+      "coordinates":[-70.2553259,43.66147100000001]
+    },
+    {
+      "Name" : "New Hampshire, Concord",
+      "TotalPublished" : 107,
+      "coordinates":[-71.5375718,43.2081366]
+    },
+    {
+      "Name" : "Massachusetts, Springfield",
+      "TotalPublished" : 106,
+      "coordinates":[-72.589811,42.1014831]
+    },
+    {
+      "Name" : "Mexico, Puebla",
+      "TotalPublished" : 104,
+      "coordinates":[-98.209223,19.046795]
+    },
+    {
+      "Name" : "New Jersey, Elizabeth",
+      "TotalPublished" : 101,
+      "coordinates":[-74.2107006,40.6639916]
+    },
+    {
+      "Name" : "Haiti, Cap-haitien",
+      "TotalPublished" : 90,
+      "coordinates":[-72.199669,19.75622]
+    },
+    {
+      "Name" : "New Jersey, Woodbridge",
+      "TotalPublished" : 84,
+      "coordinates":[-74.2846022,40.5575986]
+    },
+    {
+      "Name" : "Massachusetts, Northampton",
+      "TotalPublished" : 80,
+      "coordinates":[-72.64120129999999,42.3250896]
+    },
+    {
+      "Name" : "Vermont, Rutland",
+      "TotalPublished" : 79,
+      "coordinates":[-72.9726065,43.6106237]
+    },
+    {
+      "Name" : "Rhode Island, Warren",
+      "TotalPublished" : 78,
+      "coordinates":[-71.2577233,41.7216048]
+    },
+    {
+      "Name" : "New Hampshire, Dover",
+      "TotalPublished" : 77,
+      "coordinates":[-70.8736698,43.1978624]
+    },
+    {
+      "Name" : "Kentucky, Lexington",
+      "TotalPublished" : 73,
+      "coordinates":[-84.5037164,38.0405837]
+    },
+    {
+      "Name" : "New York, Poughkeepsie",
+      "TotalPublished" : 72,
+      "coordinates":[-73.9209701,41.7003713]
+    },
+    {
+      "Name" : "New Jersey, Newark",
+      "TotalPublished" : 68,
+      "coordinates":[-74.1723667,40.735657]
+    },
+    {
+      "Name" : "New Hampshire, Hanover",
+      "TotalPublished" : 63,
+      "coordinates":[-72.2895526,43.7022451]
+    },
+    {
+      "Name" : "Massachusetts, Leominster",
+      "TotalPublished" : 60,
+      "coordinates":[-71.759794,42.5250906]
+    },
+    {
+      "Name" : "Massachusetts, Stockbridge",
+      "TotalPublished" : 60,
+      "coordinates":[-73.3354993,42.3059875]
+    },
+    {
+      "Name" : "Connecticut, Middletown",
+      "TotalPublished" : 59,
+      "coordinates":[-72.6506488,41.5623209]
+    },
+    {
+      "Name" : "Connecticut, Windham",
+      "TotalPublished" : 59,
+      "coordinates":[-72.1666667,41.7166667]
+    },
+    {
+      "Name" : "California, Los Angeles",
+      "TotalPublished" : 58,
+      "coordinates":[-118.2436849,34.0522342]
+    },
+    {
+      "Name" : "Connecticut, Danbury",
+      "TotalPublished" : 58,
+      "coordinates":[-73.4540111,41.394817]
+    },
+    {
+      "Name" : "New Hampshire, Walpole",
+      "TotalPublished" : 57,
+      "coordinates":[-72.4258229,43.0794944]
+    },
+    {
+      "Name" : "New York, Hudson",
+      "TotalPublished" : 57,
+      "coordinates":[-73.789722,42.25]
+    },
+    {
+      "Name" : "Argentina, Buenos Aires",
+      "TotalPublished" : 53,
+      "coordinates":[-58.3815931,-34.6037232]
+    },
+    {
+      "Name" : "New York, Fishkill",
+      "TotalPublished" : 53,
+      "coordinates":[-73.89902520000001,41.53564919999999]
+    },
+    {
+      "Name" : "Jamaica, Kingston",
+      "TotalPublished" : 52,
+      "coordinates":[-76.7920089,17.992731]
+    },
+    {
+      "Name" : "New Hampshire, Amherst",
+      "TotalPublished" : 52,
+      "coordinates":[-71.60055559999999,42.875]
+    },
+    {
+      "Name" : "North Carolina, Halifax",
+      "TotalPublished" : 49,
+      "coordinates":[-77.5894199,36.328486]
+    },
+    {
+      "Name" : "New Hampshire, Keene",
+      "TotalPublished" : 47,
+      "coordinates":[-72.2781409,42.933692]
+    },
+    {
+      "Name" : "Pennsylvania, Carlisle",
+      "TotalPublished" : 47,
+      "coordinates":[-77.195,40.2025]
+    },
+    {
+      "Name" : "Massachusetts, New Bedford",
+      "TotalPublished" : 46,
+      "coordinates":[-70.93420499999999,41.6362152]
+    },
+    {
+      "Name" : "Massachusetts, Greenfield",
+      "TotalPublished" : 44,
+      "coordinates":[-72.5994104,42.587915]
+    },
+    {
+      "Name" : "Canada, Quebec",
+      "TotalPublished" : 43,
+      "coordinates":[-73.5491361,52.9399159]
+    },
+    {
+      "Name" : "Georgia, Augusta",
+      "TotalPublished" : 42,
+      "coordinates":[-82.0105148,33.4734978]
+    },
+    {
+      "Name" : "New Jersey, New Brunswick",
+      "TotalPublished" : 42,
+      "coordinates":[-74.4518188,40.4862157]
+    },
+    {
+      "Name" : "Louisiana, New Orleans",
+      "TotalPublished" : 39,
+      "coordinates":[-90.0715323,29.95106579999999]
+    },
+    {
+      "Name" : "Massachusetts, Charlestown",
+      "TotalPublished" : 39,
+      "coordinates":[-71.0646337,42.37954089999999]
+    },
+    {
+      "Name" : "Maryland, Frederick",
+      "TotalPublished" : 38,
+      "coordinates":[-77.4105409,39.41426879999999]
+    },
+    {
+      "Name" : "North Carolina, Edenton",
+      "TotalPublished" : 38,
+      "coordinates":[-76.6077213,36.057938]
+    },
+    {
+      "Name" : "Massachusetts, Dedham",
+      "TotalPublished" : 37,
+      "coordinates":[-71.16614299999999,42.2411916]
+    },
+    {
+      "Name" : "New York, Lansingburgh",
+      "TotalPublished" : 36,
+      "coordinates":[-73.66956239999999,42.7845222]
+    },
+    {
+      "Name" : "Quebec, Quebec",
+      "TotalPublished" : 35,
+      "coordinates":[-71.242796,46.8032826]
+    },
+    {
+      "Name" : "Jamaica, Spanish Town",
+      "TotalPublished" : 33,
+      "coordinates":[-76.95159900000002,17.994761]
+    },
+    {
+      "Name" : "Pennsylvania, Reading",
+      "TotalPublished" : 33,
+      "coordinates":[-75.9268747,40.3356483]
+    },
+    {
+      "Name" : "Connecticut, Cheshire",
+      "TotalPublished" : 31,
+      "coordinates":[-72.90361109999999,41.5122222]
+    },
+    {
+      "Name" : "Pennsylvania, Chestnut Hill",
+      "TotalPublished" : 31,
+      "coordinates":[-75.2070644,40.0703334]
+    },
+    {
+      "Name" : "Massachusetts, Brookfield",
+      "TotalPublished" : 30,
+      "coordinates":[-72.1075,42.1819444]
+    },
+    {
+      "Name" : "Massachusetts, Wrentham",
+      "TotalPublished" : 28,
+      "coordinates":[-71.3286111,42.0666667]
+    },
+    {
+      "Name" : "New York, Catskill",
+      "TotalPublished" : 28,
+      "coordinates":[-73.8645734,42.2173102]
+    },
+    {
+      "Name" : "Pennsylvania, York",
+      "TotalPublished" : 27,
+      "coordinates":[-76.727745,39.9625984]
+    },
+    {
+      "Name" : "Connecticut, Suffield",
+      "TotalPublished" : 26,
+      "coordinates":[-72.68238319999999,41.9838111]
+    },
+    {
+      "Name" : "Massachusetts, Haverhill",
+      "TotalPublished" : 26,
+      "coordinates":[-71.0772796,42.7762015]
+    },
+    {
+      "Name" : "Nova Scotia, Halifax",
+      "TotalPublished" : 26,
+      "coordinates":[-63.5753196,44.6488625]
+    },
+    {
+      "Name" : "Kentucky, Frankfort",
+      "TotalPublished" : 25,
+      "coordinates":[-84.8984775,38.2481018]
+    },
+    {
+      "Name" : "Virginia, Alexandria",
+      "TotalPublished" : 25,
+      "coordinates":[-77.0469214,38.8048355]
+    },
+    {
+      "Name" : "District of Columbia, Washington",
+      "TotalPublished" : 24,
+      "coordinates":[-77.0363658,38.8951118]
+    },
+    {
+      "Name" : "Maryland, Hagerstown",
+      "TotalPublished" : 24,
+      "coordinates":[-77.71999319999999,39.6417629]
+    },
+    {
+      "Name" : "Massachusetts, Danvers",
+      "TotalPublished" : 24,
+      "coordinates":[-70.93212199999999,42.5750009]
+    },
+    {
+      "Name" : "Washington DC, Georgetown",
+      "TotalPublished" : 24,
+      "coordinates":[-77.06535650000001,38.9097057]
+    },
+    {
+      "Name" : "Maine, Hallowell",
+      "TotalPublished" : 23,
+      "coordinates":[-69.7908786,44.2859022]
+    },
+    {
+      "Name" : "Pennsylvania, New York",
+      "TotalPublished" : 23,
+      "coordinates":[-74.0300122,40.9590293]
+    },
+    {
+      "Name" : "St. Vincent & The Grenadine, Kingstown",
+      "TotalPublished" : 23,
+      "coordinates":[-61.21024420000001,13.2648773]
+    },
+    {
+      "Name" : "Massachusetts, West Springfield",
+      "TotalPublished" : 22,
+      "coordinates":[-72.6203675,42.1070383]
+    },
+    {
+      "Name" : "Pennsylvania, Chambersburg",
+      "TotalPublished" : 22,
+      "coordinates":[-77.6611022,39.9375911]
+    },
+    {
+      "Name" : "Pennsylvania, Washington",
+      "TotalPublished" : 22,
+      "coordinates":[-80.2461714,40.17396]
+    },
+    {
+      "Name" : "Virginia, Petersburg",
+      "TotalPublished" : 22,
+      "coordinates":[-77.40192669999999,37.2279279]
+    },
+    {
+      "Name" : "Connecticut, Newfield",
+      "TotalPublished" : 21,
+      "coordinates":[-73.5535234,41.0919065]
+    },
+    {
+      "Name" : "Pennsylvania, Harrisburg",
+      "TotalPublished" : 21,
+      "coordinates":[-76.8844179,40.2737002]
+    },
+    {
+      "Name" : "Vermont, Fairhaven",
+      "TotalPublished" : 20,
+      "coordinates":[-73.2657155,43.594801]
+    },
+    {
+      "Name" : "Vermont, Westminster",
+      "TotalPublished" : 20,
+      "coordinates":[-72.4587404,43.06783069999999]
+    },
+    {
+      "Name" : "Virginia, Norfolk",
+      "TotalPublished" : 20,
+      "coordinates":[-76.28587259999999,36.8507689]
+    },
+    {
+      "Name" : "Massachusetts, Pittsfield",
+      "TotalPublished" : 20,
+      "coordinates":[-73.2453824,42.4500845]
+    },
+    {
+      "Name" : "Colombia, Bogota",
+      "TotalPublished" : 19,
+      "coordinates":[-74.0758333,4.598055599999999]
+    },
+    {
+      "Name" : "Barbados, Bridgetown",
+      "TotalPublished" : 18,
+      "coordinates":[-59.61335200000001,13.098938]
+    },
+    {
+      "Name" : "New York, Goshen",
+      "TotalPublished" : 18,
+      "coordinates":[-74.3243191,41.4020382]
+    },
+    {
+      "Name" : "Tennessee, Knoxville",
+      "TotalPublished" : 18,
+      "coordinates":[-83.9207392,35.9606384]
+    },
+    {
+      "Name" : "Quebec, Montreal",
+      "TotalPublished" : 18,
+      "coordinates":[-73.55399249999999,45.5086699]
+    },
+    {
+      "Name" : "New Jersey, Chatham",
+      "TotalPublished" : 17,
+      "coordinates":[-74.3837624,40.740934]
+    },
+    {
+      "Name" : "Antigua and Barbuda, Antigua",
+      "TotalPublished" : 16,
+      "coordinates":[-61.8175207,17.0746557]
+    },
+    {
+      "Name" : "New York, Kingston",
+      "TotalPublished" : 16,
+      "coordinates":[-73.9973608,41.9270367]
+    },
+    {
+      "Name" : "Haiti, Saint Marc",
+      "TotalPublished" : 15,
+      "coordinates":[-72.697548,19.1089309]
+    },
+    {
+      "Name" : "Cuba, Havana",
+      "TotalPublished" : 14,
+      "coordinates":[-82.38855699999999,23.1168]
+    },
+    {
+      "Name" : "New York, Schenectady",
+      "TotalPublished" : 14,
+      "coordinates":[-73.9395687,42.8142432]
+    },
+    {
+      "Name" : "Pennsylvania, Yorktown",
+      "TotalPublished" : 14,
+      "coordinates":[-75.15295499999999,39.9734459]
+    },
+    {
+      "Name" : "Vermont, Brattleborough",
+      "TotalPublished" : 14,
+      "coordinates":[-72.5578619,42.8509348]
+    },
+    {
+      "Name" : "Bermuda, Hamilton",
+      "TotalPublished" : 13,
+      "coordinates":[-64.781375,32.294816]
+    },
+    {
+      "Name" : "Delaware, New Castle",
+      "TotalPublished" : 13,
+      "coordinates":[-75.56631320000001,39.6620572]
+    },
+    {
+      "Name" : "New York, Cooperstown",
+      "TotalPublished" : 13,
+      "coordinates":[-74.92432099999999,42.7006303]
+    },
+    {
+      "Name" : "New York, Troy",
+      "TotalPublished" : 13,
+      "coordinates":[-73.69178509999999,42.7284117]
+    },
+    {
+      "Name" : "Pennsylvania, Northumberland",
+      "TotalPublished" : 13,
+      "coordinates":[-76.7974653,40.8917519]
+    },
+    {
+      "Name" : "Maine, Wiscasset",
+      "TotalPublished" : 12,
+      "coordinates":[-69.665583,44.0028921]
+    },
+    {
+      "Name" : "New York, Newburgh",
+      "TotalPublished" : 12,
+      "coordinates":[-74.0104178,41.5034271]
+    },
+    {
+      "Name" : "Pennsylvania, Whitehall",
+      "TotalPublished" : 12,
+      "coordinates":[-79.99088549999999,40.3611806]
+    },
+    {
+      "Name" : "Virginia, Fredericksburg",
+      "TotalPublished" : 12,
+      "coordinates":[-77.4605399,38.3031837]
+    },
+    {
+      "Name" : "New York, Sag Harbor",
+      "TotalPublished" : 12,
+      "coordinates":[-72.2925819,40.99787730000001]
+    },
+    {
+      "Name" : "Maine, Augusta",
+      "TotalPublished" : 11,
+      "coordinates":[-69.7794897,44.3106241]
+    },
+    {
+      "Name" : "Massachusetts, Newbury",
+      "TotalPublished" : 11,
+      "coordinates":[-70.8714528,42.7649497]
+    },
+    {
+      "Name" : "Mexico, Guadalajara",
+      "TotalPublished" : 11,
+      "coordinates":[-103.3356272,20.689992]
+    },
+    {
+      "Name" : "Grenada, Saint George",
+      "TotalPublished" : 10,
+      "coordinates":[-61.74968399999999,12.053532]
+    },
+    {
+      "Name" : "North Carolina, Wilmington",
+      "TotalPublished" : 10,
+      "coordinates":[-77.9447102,34.2257255]
+    },
+    {
+      "Name" : "Vermont, Vergennes",
+      "TotalPublished" : 10,
+      "coordinates":[-73.2540111,44.1672771]
+    },
+    {
+      "Name" : "Ecuador, Quito",
+      "TotalPublished" : 9,
+      "coordinates":[-78.51666670000002,-0.2166667]
+    },
+    {
+      "Name" : "Haiti, Haiti",
+      "TotalPublished" : 9,
+      "coordinates":[-72.285215,18.971187]
+    },
+    {
+      "Name" : "Massachusetts, Attleborough",
+      "TotalPublished" : 9,
+      "coordinates":[-71.2856082,41.94454409999999]
+    },
+    {
+      "Name" : "Massachusetts, Chelmsford",
+      "TotalPublished" : 9,
+      "coordinates":[-71.36766999999999,42.599857]
+    },
+    {
+      "Name" : "Massachusetts, Lynn",
+      "TotalPublished" : 9,
+      "coordinates":[-70.9494938,42.46676300000001]
+    },
+    {
+      "Name" : "Massachusetts, Plymouth",
+      "TotalPublished" : 9,
+      "coordinates":[-70.6672621,41.9584457]
+    },
+    {
+      "Name" : "Connecticut, Fairfield",
+      "TotalPublished" : 8,
+      "coordinates":[-73.2612615,41.1408363]
+    },
+    {
+      "Name" : "Maine, Falmouth",
+      "TotalPublished" : 8,
+      "coordinates":[-70.2772222,43.7405556]
+    },
+    {
+      "Name" : "Martinique, Saint Pierre",
+      "TotalPublished" : 8,
+      "coordinates":[-61.1519716,14.7549809]
+    },
+    {
+      "Name" : "Maryland, Easton",
+      "TotalPublished" : 8,
+      "coordinates":[-76.0763305,38.7742826]
+    },
+    {
+      "Name" : "Massachusetts, Medford",
+      "TotalPublished" : 8,
+      "coordinates":[-71.1061639,42.4184296]
+    },
+    {
+      "Name" : "Connecticut, East Windsor",
+      "TotalPublished" : 7,
+      "coordinates":[-72.5578799,41.9161361]
+    },
+    {
+      "Name" : "New Hampshire, Haverhill",
+      "TotalPublished" : 7,
+      "coordinates":[-71.96404249999999,44.0630821]
+    },
+    {
+      "Name" : "New York, Whitestown",
+      "TotalPublished" : 7,
+      "coordinates":[-75.329557,43.1381536]
+    },
+    {
+      "Name" : "North Carolina, Salisbury",
+      "TotalPublished" : 7,
+      "coordinates":[-80.4742261,35.6709727]
+    },
+    {
+      "Name" : "Pennsylvania, Hanover",
+      "TotalPublished" : 7,
+      "coordinates":[-76.9830358,39.8006553]
+    },
+    {
+      "Name" : "Vermont, Putney",
+      "TotalPublished" : 7,
+      "coordinates":[-72.51722219999999,43.0002778]
+    },
+    {
+      "Name" : "Virginia, Winchester",
+      "TotalPublished" : 7,
+      "coordinates":[-78.1633341,39.1856597]
+    },
+    {
+      "Name" : "Canada, Saint John",
+      "TotalPublished" : 6,
+      "coordinates":[-66.0633081,45.2733153]
+    },
+    {
+      "Name" : "Connecticut, Stonington",
+      "TotalPublished" : 6,
+      "coordinates":[-71.9058854,41.3358915]
+    },
+    {
+      "Name" : "Maine, Fryeburg",
+      "TotalPublished" : 6,
+      "coordinates":[-70.9806357,44.0164329]
+    },
+    {
+      "Name" : "Massachusetts, Concord",
+      "TotalPublished" : 6,
+      "coordinates":[-71.3494444,42.4602778]
+    },
+    {
+      "Name" : "Massachusetts, Middleborough",
+      "TotalPublished" : 6,
+      "coordinates":[-70.9107708,41.8929942]
+    },
+    {
+      "Name" : "New York, Canaan",
+      "TotalPublished" : 6,
+      "coordinates":[-73.4470553,42.4120287]
+    },
+    {
+      "Name" : "New York, Mount Pleasant",
+      "TotalPublished" : 6,
+      "coordinates":[-73.7934666,41.0962074]
+    },
+    {
+      "Name" : "New York, Waterford",
+      "TotalPublished" : 6,
+      "coordinates":[-73.6812293,42.7925777]
+    },
+    {
+      "Name" : "Ohio, Cincinnati",
+      "TotalPublished" : 6,
+      "coordinates":[-84.5120196,39.1031182]
+    },
+    {
+      "Name" : "Dominica, Roseau",
+      "TotalPublished" : 5,
+      "coordinates":[-61.384225,15.304193]
+    },
+    {
+      "Name" : "Haiti, Les Cayes",
+      "TotalPublished" : 5,
+      "coordinates":[-73.75,18.2]
+    },
+    {
+      "Name" : "Mexico, Ocampo",
+      "TotalPublished" : 5,
+      "coordinates":[-101.478092,21.650021]
+    },
+    {
+      "Name" : "New Jersey, Mount Holly",
+      "TotalPublished" : 5,
+      "coordinates":[-74.78793929999999,39.9931438]
+    },
+    {
+      "Name" : "New York, Ballston",
+      "TotalPublished" : 5,
+      "coordinates":[-73.87472220000001,42.9533333]
+    },
+    {
+      "Name" : "New York, Salem",
+      "TotalPublished" : 5,
+      "coordinates":[-73.3276101,43.1722983]
+    },
+    {
+      "Name" : "Pennsylvania, Pittsburgh",
+      "TotalPublished" : 5,
+      "coordinates":[-79.9958864,40.44062479999999]
+    },
+    {
+      "Name" : "South Carolina, Columbia",
+      "TotalPublished" : 5,
+      "coordinates":[-81.0348144,34.0007104]
+    },
+    {
+      "Name" : "Vermont, Peacham",
+      "TotalPublished" : 5,
+      "coordinates":[-72.1704048,44.3286166]
+    },
+    {
+      "Name" : "Florida, Saint Augustine",
+      "TotalPublished" : 5,
+      "coordinates":[-81.3132083,29.8942639]
+    },
+    {
+      "Name" : "New Brunswick, Fredericton",
+      "TotalPublished" : 5,
+      "coordinates":[-66.6431151,45.9635895]
+    },
+    {
+      "Name" : "Maryland, Chestertown",
+      "TotalPublished" : 4,
+      "coordinates":[-76.071891,39.2169779]
+    },
+    {
+      "Name" : "Massachusetts, Andover",
+      "TotalPublished" : 4,
+      "coordinates":[-71.1367953,42.6583356]
+    },
+    {
+      "Name" : "New Jersey, Mount Pleasant",
+      "TotalPublished" : 4,
+      "coordinates":[-74.1695025,40.7579398]
+    },
+    {
+      "Name" : "New York, Brooklyn",
+      "TotalPublished" : 4,
+      "coordinates":[-73.95,40.65]
+    },
+    {
+      "Name" : "Peru, Juli",
+      "TotalPublished" : 4,
+      "coordinates":[-69.4575979,-16.2142869]
+    },
+    {
+      "Name" : "Saint Kitts-Nevis, Basse-terre",
+      "TotalPublished" : 4,
+      "coordinates":[-62.7176924,17.3026058]
+    },
+    {
+      "Name" : "South Carolina, Jacksonburgh",
+      "TotalPublished" : 4,
+      "coordinates":[-81.1637245,33.836081]
+    },
+    {
+      "Name" : "Vermont, Dresden",
+      "TotalPublished" : 4,
+      "coordinates":[-73.4111099,43.6725]
+    },
+    {
+      "Name" : "Vermont, Newbury",
+      "TotalPublished" : 4,
+      "coordinates":[-72.1217587,44.1039533]
+    },
+    {
+      "Name" : "Virginia, Charlottesville",
+      "TotalPublished" : 4,
+      "coordinates":[-78.47667810000002,38.0293059]
+    },
+    {
+      "Name" : "Ontario, Niagara",
+      "TotalPublished" : 4,
+      "coordinates":[-79.0849436,43.0895577]
+    },
+    {
+      "Name" : "Antigua and Barbuda, Saint Johns",
+      "TotalPublished" : 3,
+      "coordinates":[-61.845557,17.117528]
+    },
+    {
+      "Name" : "Argentina, Argent",
+      "TotalPublished" : 3,
+      "coordinates":[-57.1394484,-34.8589693]
+    },
+    {
+      "Name" : "Argentina, Londres",
+      "TotalPublished" : 3,
+      "coordinates":[-67.1154785,-27.7157593]
+    },
+    {
+      "Name" : "Connecticut, Bridgeport",
+      "TotalPublished" : 3,
+      "coordinates":[-73.19517669999999,41.1865478]
+    },
+    {
+      "Name" : "Georgia, Louisville",
+      "TotalPublished" : 3,
+      "coordinates":[-82.4112377,33.0015407]
+    },
+    {
+      "Name" : "Maine, Castine",
+      "TotalPublished" : 3,
+      "coordinates":[-68.7989582,44.3888609]
+    },
+    {
+      "Name" : "Massachusetts, Conway",
+      "TotalPublished" : 3,
+      "coordinates":[-72.6860696,42.522589]
+    },
+    {
+      "Name" : "Massachusetts, Rehoboth",
+      "TotalPublished" : 3,
+      "coordinates":[-71.2393933,41.8470056]
+    },
+    {
+      "Name" : "New Jersey, Princeton",
+      "TotalPublished" : 3,
+      "coordinates":[-74.6672226,40.3572976]
+    },
+    {
+      "Name" : "North Carolina, Fayetteville",
+      "TotalPublished" : 3,
+      "coordinates":[-78.87835849999999,35.0526641]
+    },
+    {
+      "Name" : "North Carolina, Raleigh",
+      "TotalPublished" : 3,
+      "coordinates":[-78.6386145,35.772096]
+    },
+    {
+      "Name" : "Paraguay, Loreto",
+      "TotalPublished" : 3,
+      "coordinates":[-57.3242238,-23.2771069]
+    },
+    {
+      "Name" : "Paraguay, Santa Maria Mayor",
+      "TotalPublished" : 3,
+      "coordinates":[-57.5492096,-25.2992188]
+    },
+    {
+      "Name" : "Pennsylvania, Bethlehem",
+      "TotalPublished" : 3,
+      "coordinates":[-75.37045789999999,40.6259316]
+    },
+    {
+      "Name" : "Pennsylvania, Westchester",
+      "TotalPublished" : 3,
+      "coordinates":[-75.5988059,39.96361599999999]
+    },
+    {
+      "Name" : "Bahamas, Nassau",
+      "TotalPublished" : 2,
+      "coordinates":[-77.345,25.06]
+    },
+    {
+      "Name" : "Brazil, Bahia",
+      "TotalPublished" : 2,
+      "coordinates":[-41.2808577,-11.4098737]
+    },
+    {
+      "Name" : "Brazil, Rio De Janeiro",
+      "TotalPublished" : 2,
+      "coordinates":[-43.2095869,-22.9035393]
+    },
+    {
+      "Name" : "Canada, Brookville",
+      "TotalPublished" : 2,
+      "coordinates":[-64.5954299,45.403662]
+    },
+    {
+      "Name" : "French Guiana, Cayenne",
+      "TotalPublished" : 2,
+      "coordinates":[-52.32689999999999,4.9227]
+    },
+    {
+      "Name" : "Guadeloupe, Basse-terre",
+      "TotalPublished" : 2,
+      "coordinates":[-61.725646,15.998761]
+    },
+    {
+      "Name" : "Jamaica, Port Royal",
+      "TotalPublished" : 2,
+      "coordinates":[-76.840508,17.934681]
+    },
+    {
+      "Name" : "Kentucky, Washington",
+      "TotalPublished" : 2,
+      "coordinates":[-85.14793639999999,37.7516142]
+    },
+    {
+      "Name" : "Maine, Pownalborough",
+      "TotalPublished" : 2,
+      "coordinates":[-69.7675828,44.1062763]
+    },
+    {
+      "Name" : "Massachusetts, Shrewsbury",
+      "TotalPublished" : 2,
+      "coordinates":[-71.71333299999999,42.29583299999999]
+    },
+    {
+      "Name" : "Massachusetts, Woburn",
+      "TotalPublished" : 2,
+      "coordinates":[-71.1522765,42.4792618]
+    },
+    {
+      "Name" : "Mexico, Oaxaca",
+      "TotalPublished" : 2,
+      "coordinates":[-96.7202778,17.0669444]
+    },
+    {
+      "Name" : "Mexico, Tlatilulco",
+      "TotalPublished" : 2,
+      "coordinates":[-99.1386972,19.4522974]
+    },
+    {
+      "Name" : "Mississippi, Natchez",
+      "TotalPublished" : 2,
+      "coordinates":[-91.40317100000001,31.5604442]
+    },
+    {
+      "Name" : "New Jersey, Morristown",
+      "TotalPublished" : 2,
+      "coordinates":[-74.4815438,40.79676670000001]
+    },
+    {
+      "Name" : "New York, Johnstown",
+      "TotalPublished" : 2,
+      "coordinates":[-74.3676356,43.0067399]
+    },
+    {
+      "Name" : "New York, New Windsor",
+      "TotalPublished" : 2,
+      "coordinates":[-74.02375180000001,41.4767605]
+    },
+    {
+      "Name" : "New York, Rochester",
+      "TotalPublished" : 2,
+      "coordinates":[-77.6109219,43.16103]
+    },
+    {
+      "Name" : "North Carolina, Hillsborough",
+      "TotalPublished" : 2,
+      "coordinates":[-79.0997347,36.0754183]
+    },
+    {
+      "Name" : "Pennsylvania, Easton",
+      "TotalPublished" : 2,
+      "coordinates":[-75.2207323,40.688432]
+    },
+    {
+      "Name" : "Pennsylvania, Norristown",
+      "TotalPublished" : 2,
+      "coordinates":[-75.3399048,40.121497]
+    },
+    {
+      "Name" : "Pennsylvania, Octoraro",
+      "TotalPublished" : 2,
+      "coordinates":[-76.05587129999999,39.8080573]
+    },
+    {
+      "Name" : "Saint Lucia, Castries",
+      "TotalPublished" : 2,
+      "coordinates":[-60.98746869999999,14.0101094]
+    },
+    {
+      "Name" : "South Carolina, Georgetown",
+      "TotalPublished" : 2,
+      "coordinates":[-79.2944964,33.376834]
+    },
+    {
+      "Name" : "Virginia, Dumfries",
+      "TotalPublished" : 2,
+      "coordinates":[-77.3280382,38.5676202]
+    },
+    {
+      "Name" : "Virginia, Leesburg",
+      "TotalPublished" : 2,
+      "coordinates":[-77.56360149999999,39.1156615]
+    },
+    {
+      "Name" : "Virginia, Staunton",
+      "TotalPublished" : 2,
+      "coordinates":[-79.0716958,38.149576]
+    },
+    {
+      "Name" : "West Virginia, Shepherdstown",
+      "TotalPublished" : 2,
+      "coordinates":[-77.8041609,39.4300996]
+    },
+    {
+      "Name" : "Alabama, Birmingham",
+      "TotalPublished" : 1,
+      "coordinates":[-86.80248999999999,33.5206608]
+    },
+    {
+      "Name" : "Bolivia, Chiquitos",
+      "TotalPublished" : 1,
+      "coordinates":[-66.36666699999999,-10.416667]
+    },
+    {
+      "Name" : "Bolivia, Potosi",
+      "TotalPublished" : 1,
+      "coordinates":[-65.756081,-19.58297]
+    },
+    {
+      "Name" : "Bolivia, Sucre",
+      "TotalPublished" : 1,
+      "coordinates":[-65.255882,-19.042139]
+    },
+    {
+      "Name" : "Brazil, San Paolo",
+      "TotalPublished" : 1,
+      "coordinates":[-46.6388182,-23.5489433]
+    },
+    {
+      "Name" : "Chile, Concepcion",
+      "TotalPublished" : 1,
+      "coordinates":[-73.050319,-36.818938]
+    },
+    {
+      "Name" : "Colombia, Cartagena",
+      "TotalPublished" : 1,
+      "coordinates":[-75.5196631,10.3873369]
+    },
+    {
+      "Name" : "Colombia, Santa Fe",
+      "TotalPublished" : 1,
+      "coordinates":[-75.581523,6.2217045]
+    },
+    {
+      "Name" : "Connecticut, Dedham",
+      "TotalPublished" : 1,
+      "coordinates":[-73.0847489,41.9097844]
+    },
+    {
+      "Name" : "Connecticut, Farmington",
+      "TotalPublished" : 1,
+      "coordinates":[-72.79502699999999,41.7360305]
+    },
+    {
+      "Name" : "Connecticut, Killingworth",
+      "TotalPublished" : 1,
+      "coordinates":[-72.5645602,41.3581869]
+    },
+    {
+      "Name" : "Connecticut, Kingston",
+      "TotalPublished" : 1,
+      "coordinates":[-81.02999249999999,29.2223315]
+    },
+    {
+      "Name" : "Connecticut, Leominster",
+      "TotalPublished" : 1,
+      "coordinates":[-72.93520869999999,41.68538909999999]
+    },
+    {
+      "Name" : "Connecticut, Salisbury",
+      "TotalPublished" : 1,
+      "coordinates":[-73.42250100000001,41.981567]
+    },
+    {
+      "Name" : "Connecticut, Simsbury",
+      "TotalPublished" : 1,
+      "coordinates":[-72.8252778,41.8705556]
+    },
+    {
+      "Name" : "Connecticut, Wallingford",
+      "TotalPublished" : 1,
+      "coordinates":[-72.8230736,41.4570108]
+    },
+    {
+      "Name" : "Florida, Pensacola",
+      "TotalPublished" : 1,
+      "coordinates":[-87.2169149,30.42130899999999]
+    },
+    {
+      "Name" : "Honduras, Guatemala City",
+      "TotalPublished" : 1,
+      "coordinates":[-90.53281799999999,14.624795]
+    },
+    {
+      "Name" : "Maine, Dexter",
+      "TotalPublished" : 1,
+      "coordinates":[-69.2898156,45.02391799999999]
+    },
+    {
+      "Name" : "Martinique, Fort-de-france",
+      "TotalPublished" : 1,
+      "coordinates":[-61.07256,14.609371]
+    },
+    {
+      "Name" : "Maryland, Saint Mary's",
+      "TotalPublished" : 1,
+      "coordinates":[-76.3637285,38.1060259]
+    },
+    {
+      "Name" : "Massachusetts, Bridgewater",
+      "TotalPublished" : 1,
+      "coordinates":[-70.9750541,41.9903519]
+    },
+    {
+      "Name" : "Massachusetts, Bristol",
+      "TotalPublished" : 1,
+      "coordinates":[-71.1448516,41.7938406]
+    },
+    {
+      "Name" : "Massachusetts, Dorchester",
+      "TotalPublished" : 1,
+      "coordinates":[-71.0744952,42.2973205]
+    },
+    {
+      "Name" : "Massachusetts, East Hampton",
+      "TotalPublished" : 1,
+      "coordinates":[-72.66897999999999,42.266757]
+    },
+    {
+      "Name" : "Massachusetts, Granville",
+      "TotalPublished" : 1,
+      "coordinates":[-72.8619444,42.0666667]
+    },
+    {
+      "Name" : "Massachusetts, Hallowell",
+      "TotalPublished" : 1,
+      "coordinates":[-71.0727131,42.2565985]
+    },
+    {
+      "Name" : "Massachusetts, Hopkinton",
+      "TotalPublished" : 1,
+      "coordinates":[-71.5225646,42.22869540000001]
+    },
+    {
+      "Name" : "Massachusetts, Mushauwomuk",
+      "TotalPublished" : 1,
+      "coordinates":[-71.3824374,42.4072107]
+    },
+    {
+      "Name" : "Massachusetts, Newton",
+      "TotalPublished" : 1,
+      "coordinates":[-71.20922139999999,42.3370413]
+    },
+    {
+      "Name" : "Massachusetts, Norton",
+      "TotalPublished" : 1,
+      "coordinates":[-71.1869963,41.9667703]
+    },
+    {
+      "Name" : "Massachusetts, Pembroke",
+      "TotalPublished" : 1,
+      "coordinates":[-70.80919999999999,42.0714925]
+    },
+    {
+      "Name" : "Massachusetts, Roxbury",
+      "TotalPublished" : 1,
+      "coordinates":[-71.0953294,42.32509779999999]
+    },
+    {
+      "Name" : "Massachusetts, Sheffield",
+      "TotalPublished" : 1,
+      "coordinates":[-73.35514359999999,42.1099885]
+    },
+    {
+      "Name" : "Massachusetts, Sutton",
+      "TotalPublished" : 1,
+      "coordinates":[-71.7632878,42.1500353]
+    },
+    {
+      "Name" : "Massachusetts, Taunton",
+      "TotalPublished" : 1,
+      "coordinates":[-71.0897674,41.900101]
+    },
+    {
+      "Name" : "Massachusetts, Warwick",
+      "TotalPublished" : 1,
+      "coordinates":[-72.35479149999999,42.6608094]
+    },
+    {
+      "Name" : "Massachusetts, Wilmington",
+      "TotalPublished" : 1,
+      "coordinates":[-71.1724467,42.5481714]
+    },
+    {
+      "Name" : "Mexico, Quito",
+      "TotalPublished" : 1,
+      "coordinates":[-78.5099982,-0.236632]
+    },
+    {
+      "Name" : "Mexico, Salamanca",
+      "TotalPublished" : 1,
+      "coordinates":[-101.1963224,20.5708742]
+    },
+    {
+      "Name" : "Mexico, Santa Maria Mayor",
+      "TotalPublished" : 1,
+      "coordinates":[-115.3819742,32.6500525]
+    },
+    {
+      "Name" : "Mexico, Santa Rosa",
+      "TotalPublished" : 1,
+      "coordinates":[-87.445534,19.5091187]
+    },
+    {
+      "Name" : "Mexico, Tubutama",
+      "TotalPublished" : 1,
+      "coordinates":[-111.4626041,30.8840282]
+    },
+    {
+      "Name" : "Michigan, Detroit",
+      "TotalPublished" : 1,
+      "coordinates":[-83.0457538,42.331427]
+    },
+    {
+      "Name" : "Mississippi, Walnut Hills",
+      "TotalPublished" : 1,
+      "coordinates":[-88.4833752,33.3556772]
+    },
+    {
+      "Name" : "New Brunswick, Saint Johns",
+      "TotalPublished" : 1,
+      "coordinates":[-69.0068904,47.2317613]
+    },
+    {
+      "Name" : "New Hampshire, Bradford",
+      "TotalPublished" : 1,
+      "coordinates":[-71.9576292,43.26870479999999]
+    },
+    {
+      "Name" : "New Hampshire, Gilmanton",
+      "TotalPublished" : 1,
+      "coordinates":[-71.4138418,43.4248816]
+    },
+    {
+      "Name" : "New Hampshire, Northampton",
+      "TotalPublished" : 1,
+      "coordinates":[-72.63369680000001,42.316235]
+    },
+    {
+      "Name" : "New Jersey, Hudson",
+      "TotalPublished" : 1,
+      "coordinates":[-74.05351259999999,40.7453199]
+    },
+    {
+      "Name" : "New Jersey, Newton",
+      "TotalPublished" : 1,
+      "coordinates":[-74.7526651,41.0581527]
+    },
+    {
+      "Name" : "New Jersey, Perth Amboy",
+      "TotalPublished" : 1,
+      "coordinates":[-74.2654234,40.5067723]
+    },
+    {
+      "Name" : "New Jersey, Salem",
+      "TotalPublished" : 1,
+      "coordinates":[-75.46714229999999,39.5717796]
+    },
+    {
+      "Name" : "New Jersey, Scotch Plains",
+      "TotalPublished" : 1,
+      "coordinates":[-74.369018,40.6400404]
+    },
+    {
+      "Name" : "New York, Bedford",
+      "TotalPublished" : 1,
+      "coordinates":[-73.6437397,41.204262]
+    },
+    {
+      "Name" : "New York, Canandaigua",
+      "TotalPublished" : 1,
+      "coordinates":[-77.2816984,42.887535]
+    },
+    {
+      "Name" : "New York, Delmar",
+      "TotalPublished" : 1,
+      "coordinates":[-73.8326232,42.6220235]
+    },
+    {
+      "Name" : "New York, Elizabethtown",
+      "TotalPublished" : 1,
+      "coordinates":[-73.59044779999999,44.2163337]
+    },
+    {
+      "Name" : "New York, Hildesheim",
+      "TotalPublished" : 1,
+      "coordinates":[9.9658683,52.1409542]
+    },
+    {
+      "Name" : "New York, Utica",
+      "TotalPublished" : 1,
+      "coordinates":[-75.232664,43.100903]
+    },
+    {
+      "Name" : "Paraguay, Paraguay",
+      "TotalPublished" : 1,
+      "coordinates":[-58.443832,-23.442503]
+    },
+    {
+      "Name" : "Paraguay, San Xavier",
+      "TotalPublished" : 1,
+      "coordinates":[-57.52,-25.34]
+    },
+    {
+      "Name" : "Pennsylvania, Dublin",
+      "TotalPublished" : 1,
+      "coordinates":[-75.2015627,40.3717714]
+    },
+    {
+      "Name" : "Pennsylvania, Greensburg",
+      "TotalPublished" : 1,
+      "coordinates":[-79.5389289,40.3014581]
+    },
+    {
+      "Name" : "Pennsylvania, Huntingdon",
+      "TotalPublished" : 1,
+      "coordinates":[-78.0102813,40.48479589999999]
+    },
+    {
+      "Name" : "Pennsylvania, Libanon",
+      "TotalPublished" : 1,
+      "coordinates":[-76.4113497,40.3409251]
+    },
+    {
+      "Name" : "Pennsylvania, Northampton",
+      "TotalPublished" : 1,
+      "coordinates":[-75.4968501,40.6862075]
+    },
+    {
+      "Name" : "Pennsylvania, Quarryville",
+      "TotalPublished" : 1,
+      "coordinates":[-76.1635655,39.897047]
+    },
+    {
+      "Name" : "Pennsylvania, Shippensburg",
+      "TotalPublished" : 1,
+      "coordinates":[-77.5202647,40.0506453]
+    },
+    {
+      "Name" : "Pennsylvania, Southampton",
+      "TotalPublished" : 1,
+      "coordinates":[-75.0437814,40.1742759]
+    },
+    {
+      "Name" : "Pennsylvania, Warminster",
+      "TotalPublished" : 1,
+      "coordinates":[-75.099807,40.2067884]
+    },
+    {
+      "Name" : "Pennsylvania, Warwick",
+      "TotalPublished" : 1,
+      "coordinates":[-75.784167,40.165]
+    },
+    {
+      "Name" : "Peru, Chucuito",
+      "TotalPublished" : 1,
+      "coordinates":[-69.8888889,-15.8938889]
+    },
+    {
+      "Name" : "Peru, Cuzco",
+      "TotalPublished" : 1,
+      "coordinates":[-71.97222219999999,-13.525]
+    },
+    {
+      "Name" : "Peru, Tarma",
+      "TotalPublished" : 1,
+      "coordinates":[-75.6848074,-11.4691272]
+    },
+    {
+      "Name" : "Puerto Rico, Lisboa",
+      "TotalPublished" : 1,
+      "coordinates":[-66.6002635,18.027081]
+    },
+    {
+      "Name" : "Rhode Island, Middleborough",
+      "TotalPublished" : 1,
+      "coordinates":[-70.9231949,41.8806643]
+    },
+    {
+      "Name" : "Saint Pierre & Miquelon, Pressburg",
+      "TotalPublished" : 1,
+      "coordinates":[55.471843,-21.332838]
+    },
+    {
+      "Name" : "South Carolina, Annapolis",
+      "TotalPublished" : 1,
+      "coordinates":[-81.97164099999999,35.3109754]
+    },
+    {
+      "Name" : "Tennessee, Gainsborough",
+      "TotalPublished" : 1,
+      "coordinates":[-89.7577154,35.209971]
+    },
+    {
+      "Name" : "Tennessee, Nashville",
+      "TotalPublished" : 1,
+      "coordinates":[-86.7833333,36.1666667]
+    },
+    {
+      "Name" : "Texas, Dallas",
+      "TotalPublished" : 1,
+      "coordinates":[-96.80045109999999,32.7801399]
+    },
+    {
+      "Name" : "Venezuela, Venetia",
+      "TotalPublished" : 1,
+      "coordinates":[11.9245182,45.398804]
+    },
+    {
+      "Name" : "Vermont, Burlington",
+      "TotalPublished" : 1,
+      "coordinates":[-73.21207199999999,44.4758825]
+    },
+    {
+      "Name" : "Vermont, Manchester",
+      "TotalPublished" : 1,
+      "coordinates":[-73.07228549999999,43.1636197]
+    },
+    {
+      "Name" : "Virginia, Blandford",
+      "TotalPublished" : 1,
+      "coordinates":[-77.3922042,37.2304278]
+    },
+    {
+      "Name" : "Virginia, County Southampton",
+      "TotalPublished" : 1,
+      "coordinates":[-77.10249019999999,36.6788512]
+    },
+    {
+      "Name" : "Virginia, Newport",
+      "TotalPublished" : 1,
+      "coordinates":[-80.4958879,37.292191]
+    },
+    {
+      "Name" : "West Virginia, Martinsburg Va",
+      "TotalPublished" : 1,
+      "coordinates":[-77.96388689999999,39.4562099]
+    }
+  ]
+}
