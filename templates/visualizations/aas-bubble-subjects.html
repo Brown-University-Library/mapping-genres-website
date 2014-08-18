@@ -1,0 +1,65 @@
+{% extends "base.html"%}
+{% block title %}AAS Subjects{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+    <style type="text/css">
+      circle {
+        stroke: #fff;
+        stroke-width: 1.5px;
+      }
+
+      text {
+        font: 10px sans-serif;
+      }
+    </style>
+{% endblock %} <!-- end scripts in header -->
+
+{% block content%}
+        <div id="wrapper">
+          <h2>Genres in North American Publishing, 1639-1807</h2>
+          <p>This bubble chart shows the relative prominence of different genres published in North America from the earliest British colonial settlements to 1807.  Data provided by <a target="_blank" href="http://www.americanantiquarian.org/">The American Antiquarian Society</a>.</p>
+          <p>Mouse over a circle to see the full name of the genre and the number of works associated with it.</p>
+          <p>Built with the <a target="_blank" href="http://d3js.org">d3.js</a> javascript library </p>
+          <div id="chart"></div>
+          <script type="text/javascript">
+            var r = 960,
+                 format = d3.format(",d"),
+                 fill = d3.scale.category20c();
+             
+             var bubble = d3.layout.pack()
+                 .sort(null)
+                 .size([r, r]);
+             
+             var vis = d3.select("#chart").append("svg")
+                 .attr("width", r)
+                 .attr("height", r)
+                 .attr("class", "bubble");
+
+             
+             d3.csv('{{url_for('static', filename="data/AAS-Total-Items-by-Subject.csv")}}', function(rows) {
+               var node = vis.selectAll("g.node")
+                   .data(bubble.nodes(genres(rows))
+                   .filter(function(d) {return !d.children;}))
+                 .enter().append("g")
+                   .attr("class", "node")
+                   .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+               node.append("title")
+                   .text(function(d) { return d.cleanGenre + ": " + format(d.value); });
+             
+               node.append("circle")
+                   .attr("r", function(d) { return d.r; })
+                   .style("fill", function(d) { return fill(d.basicGenre); });
+              
+               node.append("text")
+                   .attr("text-anchor", "middle")
+                   .attr("dy", ".3em")
+                   .text(function(d) { return d.cleanGenre.substring(0, d.r / 3); });
+             });
+             
+             function genres(rows) {
+                return {children: rows}
+             }
+          </script>
+{% endblock %}

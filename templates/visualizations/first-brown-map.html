@@ -1,5 +1,5 @@
 {% extends "base.html"%}
-{% block title %}AAS Map{% endblock %}
+{% block title %}OLD! Hay and JCB Map{% endblock %}
 
 {% block scripts %}
     <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
@@ -24,9 +24,10 @@ text {
   font: 10px sans-serif;
 }
 
+
 #states path {
   fill: #ccc !important;
-  stroke: #ddd !important;
+  stroke: #ccc !important;
   pointer-events: none;
 }
 
@@ -74,24 +75,24 @@ path {
 }
 
 
-</style>
+    </style>
 {% endblock %} <!-- end scripts in header -->
 
 {% block content%}
         <div>
-    <div>
-          <h2>Sites of North American Publishing, 1639-1807</h2>
-          <p>This map shows the location of printing presses in North America from 1639 to 1807 whose products appear in the catalog of <a target="_blank" href="http://www.americanantiquarian.org/">The American Antiquarian Society</a>.  The dots are sized based on the number of materials held at the AAS, which may give a rough visual estimate of each location's published output.</p>            
-          <p>You can interact with this visualization in several ways:</p>
+            <h2>Range of New World Publishing Sites, 1535-1800</h2>
+            <p>This map shows the location of printing presses in the Americas from 1535 to 1800 whose products appear in the joint catalog of <a target="_blank" href="http://library.brown.edu/">The Brown University Library</a> and <a target="_blank" href="http://www.brown.edu/academics/libraries/john-carter-brown/">The John Carter Brown Library</a>.  The dots are sized based on the number of materials held on the Brown Campus, which may give a rough visual estimate of each location's published output.</p>            
+            <p>You can interact with this visualization in several ways:</p>
             <ul>
                 <li>Mouse over the map to see the full name of the nearest place and the number of works at Brown published there.</li>
                 <li> Use the buttons below to zoom and pan across the map </li>
                 <li>If you want to see how the mouseover chooses a location, click the "show Voronoi" check box.  It will display the lines of the <a href="http://en.wikipedia.org/wiki/Voronoi_diagram">Voronoi Polygons</a>.  In one sense, they lines also demarcate "zones of printing" around each location.  The current alogrithm does not take geopgraphy or the road network into account but still provides a useful overview.</li>
                 <li>You can search for locations (but not books) by name in the search bar.</li>
             </ul>
-          <p>Built with the <a target="_blank" href="http://d3js.org">d3.js</a> javascript library </p>
-          <p><span class="notebene">Note on visualization:</span> Circles are drawn in descending order of size to ensure that larger publishing centers do not 'obliterate' smaller ones.  However, the temporal aspect of this vizualization <em>has no relation to chronological time</em>.</p>
-    </div>
+            <p>Built with the <a target="_blank" href="http://d3js.org">d3.js</a> javascript library </p>
+            <p> Use the buttons below to zoom and pan across the map </p>
+             <p><span class="notebene">Note on visualization:</span> Circles are drawn in descending order of size to ensure that larger publishing centers do not 'obliterate' smaller ones.  However, the temporal aspect of this vizualization <em>has no relation to chronological time</em>.</p>
+            <p><b style="color: darkred">This data set has known issues, but it is an attempt to show the range of publishing in North and South America.  To see a cleaner, smaller data set, look at <a href="hay-jcb-voronoi.html">this map</a>.</b></p>
         </div>
 
         <div id="Buttons" class="inline">
@@ -115,33 +116,25 @@ path {
 
         <script type="text/javascript">
 
-/** HINT TO DAN ON CONVERTING FROM BROWN SYMBOL MAP TO AAS MAP - ONLY NEED TO CHANGE DATA, MAP DATA, MAP PROJECTION, AND MAP PROJECTION SPECIFICATIONS - NO OTHER CHANGES NECESSARY 
-for albers - default values of rotation are 96,0 and default scale is 150. No clipangle
-*/
-
-
-
 var w = 900,
     h = 1000;
 
-
-//These values store the rotation values
-var rotX = 96;
-var rotY = 0;
 //this variable encodes the size of the Map that is drawn
-var projectionScale = 1000;
+var projectionScale = 400;
 
 // The radius scale for the circles.
 var r = d3.scale.sqrt()
     .domain([0, 1e3])
     .range([1, 10]);
 
+
 var format = d3.format(",d");
 
 // Our map projection and the specifications that make it appear the way that it initially does
-var projection = d3.geo.albers()
+var projection = d3.geo.orthographic()
     .scale(projectionScale)
-    .rotate([rotX,rotY]);
+    .rotate([90,-20])
+    .clipAngle(65);
 
 //The set of paths that draw the projection
 var path = d3.geo.path()
@@ -178,6 +171,9 @@ var placeArray = [];
 var mousePosition = [0,0];
 var newMousePosition = [0,0];
 //This variable stores the boolean value of whether or not the mouse is pressed
+//These values store the rotation values
+var rotX = 90;
+var rotY = -20;
 //this variable stores a reference to the box that holds the text about the locations
 var searchedBox = document.getElementById("searchedBox");
 //this variable stores a reference to the box that you type search terms into
@@ -204,7 +200,7 @@ function toggleShowing() {
 function drawProjection() {
     states.selectAll("path").remove();
     
-    d3.json("../data/us-canada-boundaries.json", function(collection) {
+    d3.json('{{url_for('static', filename="data/world-countries.json")}}', function(collection) {
         states.selectAll("path")
             .data(collection.features)
             .enter()
@@ -218,7 +214,7 @@ function drawVoronoiAndCircles(){
     //Here we empty things out to facilitate redrawing
     cells.selectAll("g").remove();
     circles.selectAll("circle").remove();
-    d3.json("../data/AASLatLongTotal.json", function(locations) {
+    d3.json("{{url_for('static', filename="data/2013-06-02-Brown-publishing-locations-and-totals.json")}}", function(locations) {
         positions = [];
 
         locations.rows.forEach(function(location,i) {
@@ -323,9 +319,9 @@ function Pan(direction){
 
 //this function resets the zoom and rotation and calls draw
 function Reset(){
-    projectionScale = 1000;
-    rotX = 96;
-    rotY = 0;
+    projectionScale = 400;
+    rotX = 90;
+    rotY = -20;
     Draw();
 }
 
@@ -379,5 +375,4 @@ drawProjection();
 drawVoronoiAndCircles();
 
     </script>
-
 {% endblock %}

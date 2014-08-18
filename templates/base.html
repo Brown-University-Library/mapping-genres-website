@@ -4,13 +4,13 @@
     	{% block head %}
     	<title>{% block title %}{% endblock %} | Mapping Colonial Americas Publishing Project</title>
     	<link type="text/css" rel="stylesheet" href={{url_for('static', filename='styles/genres.css')}}/>
-    	{% block scripts %}<!-- Space for additional javascript or styles -->{% endblock %}
+    	{% block scripts %}<!-- Space for additional javascript, jquery, or css -->{% endblock %}
     	{% endblock %} <!-- end of block 'head' -->
     </head>
     <body>
     	<div id="allcontent">
 	    	<div id ="header">
-	    		<img src={{url_for('static', filename="images/HeaderGraphic.jpg")}}>
+	    		<a href="/"><img src={{url_for('static', filename="images/HeaderGraphic.jpg")}}></a>
 	    		<div id="creators">
 	    			<p> <span class="smallcaps">created by</span>
 	    				<a target="_blank" href="http://research.brown.edu/myresearch/James_Egan">Jim Egan</a> &amp;

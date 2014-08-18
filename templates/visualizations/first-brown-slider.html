@@ -1,0 +1,619 @@
+{% extends "base.html"%}
+{% block title %}OLD! Hay and JCB Slider{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+
+    <script src='{{url_for('static', filename="jQuery/js/jquery-1.9.1.js")}}'></script>
+    <script src='{{url_for('static', filename="jQuery/js/jquery-ui-1.10.3.custom.js")}}'></script>
+    <link href='{{url_for('static', filename="jQuery/css/ui-lightness/jquery-ui-1.10.3.custom.css")}}' rel="stylesheet">
+
+    <style type="text/css">
+#words {
+  margin-left: 160px;
+}
+
+h1 {
+   color: #333;
+}
+
+a {
+    color: #333;
+    font-weight: bold;
+    text-decoration:none;
+}
+
+text {
+    font: 10px sans-serif;
+}
+
+#states path {
+    fill: #ccc !important;
+    stroke: #fff !important;
+    stroke-width: 1.5px;
+    pointer-events: none;
+}
+
+#circles circle {
+    fill: steelblue;
+    stroke: darkblue;
+    stroke-width: 1px;
+    padding: 2px;
+    fill-opacity: .8;
+}
+
+#Buttons {
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    color: darkblue;
+    font-size: 24;
+    width: 350px;
+    padding-left: 10px;
+}
+
+button {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: .6em;
+    color: #333;
+    padding: 5px;
+    background-color: #eee;
+    -moz-border-radius:10px;
+    border-radius: 10px;
+}
+
+#searchedBox {
+    height: 200px;
+    width: 400px;
+    overflow:scroll;
+    float:left;
+    padding-left: 10px;
+}
+
+#sliderDiv {
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    left: 60%;
+    top:40%;
+    position: fixed;
+    height: 120px;
+    width: 280px;
+    padding-left: 10px;
+
+}
+
+#slider {
+    height: 10px;
+    width: 250px;
+    margin-top: 10px;
+}
+
+.fixedDiv {
+    top: 40%;
+    position: fixed;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    color: darkblue;
+    font-size: 24;
+}
+
+#text{
+    background-color: white;
+    z-index: 1;
+    position: relative;
+}
+
+label {
+  position: relative;
+  width: 20px;
+  margin-top: 20px;
+  margin-left: -10px;
+  text-align: center;
+}
+
+
+path {
+    pointer-events: all;
+}
+
+        </style>
+{% endblock %} <!-- end scripts in header -->
+
+{% block content%}
+            <div id="text">
+                <h2>Sites of New World Publishing, 1535-1800</h2>
+                <p>This map shows the location of printing presses in the Americas from 1535 to 1800 and gives a rough visual estimate of each location's published output.  Data provided by <a target="_blank" href="http://library.brown.edu/">The Brown University Library</a> and <a target="_blank" href="http://www.brown.edu/academics/libraries/john-carter-brown/">The John Carter Brown Library</a>.</p>
+                <p>Mouse over the map to see the full name of the nearest place and the total number of works published there.  If you want to see how the mouseover chooses a location, click the "show Voronoi" check box.</p>
+                <p>Built with the <a target="_blank" href="http://d3js.org">d3.js</a> javascript library </p>
+                <p> Use the buttons below to zoom and pan across the map. Click on a location to see the books published there.</p>
+            </div>
+
+
+            <div id="wrapper">
+                <div class="fixedDiv" align:"center">
+                    <div id="Buttons" align:"center">
+                        Search: <input id="searchBox" type="textbox" id ="text"> </input>
+                        <button onclick="Search()" style="opacity:1;"> Search! </button> 
+                        </br>
+                        <input type="checkbox" id="voronoi"> <label for="voronoi"> show Voronoi </label>
+                        </br>
+                        <button onclick="Reset()" style="opacity:1;"> Reset </button>                   
+                        <button onclick="Zoom(1)" style="opacity:1;"> Zoom In </button>   
+                        <button onclick="Zoom(-1)" style="opacity:1;"> Zoom Out </button>   
+                        </br>
+                        <button onclick="Pan('Left')" style="opacity:1;"> Pan Left </button>   
+                        <button onclick="Pan('Right')" style="opacity:1;"> Pan Right </button> 
+                        <button onclick="Pan('Up')" style="opacity:1;"> Pan Up </button>   
+                        <button onclick="Pan('Down')" style="opacity:1;"> Pan Down </button> 
+                    </div>
+                    <div id="searchedBox" align:"center"> </div>
+                </div>
+                <div id="sliderDiv" align:"right">
+                    Slider </br>
+                    <button id="singleSlideButton" onclick="slide(0,10,false)" style="opacity:1;"> Single Slide </button>
+                    <button id="doubleSlideButton" onclick="slide(10,10,false)" style="opacity:1;"> Double Slide </button>
+                    <button id="setSlideButton" onclick="slide(10,10,true)" style="opacity:1;"> Set Slide </button>
+                    <div id="slider">  </div> 
+                    <div id="labelDiv" position:"absolute"></div>
+                </div>
+                <div id="svgWrapper"> </div>
+            </div>
+
+            <script type="text/javascript">
+
+
+//A quick note on formatting - in order to get the divs to appear inline, the buttons, searchedBox and slider divs are all floated left and aligned center
+var w = 900,
+    h = 1000;
+
+//this variable encodes the size of the Map that is drawn
+var projectionScale = 400;
+
+// The radius scale for the circles.
+var r = d3.scale.sqrt()
+    .domain([0, 1e3])
+    .range([1, 10]);
+
+var initialRotX = 90;
+var initialRotY = -20;
+
+var format = d3.format(",d");
+
+//the time it takes for the circles to render when the map is moved
+var appearDuration = 1000;
+
+// Our map projection and the specifications that make it appear the way that it initially does
+var projection = d3.geo.orthographic()
+    .scale(projectionScale)
+    .rotate([initialRotX,initialRotY])
+    .clipAngle(65);
+
+//The set of paths that draw the projection
+var path = d3.geo.path()
+    .projection(projection);
+
+//The svg element that holds the map projection and the circles
+var svg = d3.select("#svgWrapper")
+    .append("svg:svg", "h2")
+    .attr("width", w)
+    .attr("height", h);
+
+//The container element that holds the paths that draw the map
+var states = svg.append("svg:g")
+    .attr("id", "states");
+
+//The container element that holds the circles
+var circles = svg.append("svg:g")
+    .attr("id", "circles");
+
+//The container element that holds the voronoi paths
+var cells = svg.append("svg:g")
+    .attr("id", "cells")
+    .attr('fill','none')
+    .attr('stroke','#000')
+    .attr('stroke-opacity',0);
+
+//This container holds the slider
+var slider = svg.append("svg:g");
+
+//this variable determines whether or not the voronoi lines are showing
+var showing = false;
+
+//This array of arrays will store the id and total published of each location. A typical entry will be [d.Name,d.totalPublished]
+var placeArray = [];
+
+//this variable stores the current mouse position - this variable is set every time the mouse goes down and drags are sensed by the difference btween mouse position and this variable
+var mousePosition = [0,0];
+var newMousePosition = [0,0];
+
+//This variable stores the boolean value of whether or not the mouse is pressed
+//These values store the rotation values
+var rotX = 90;
+var rotY = -20;
+
+//this variable stores a reference to the box that holds the text about the locations
+var searchedBox = document.getElementById("searchedBox");
+
+//this variable stores a reference to the box that you type search terms into
+var searchBox = document.getElementById("searchBox");
+
+//this variable stores the slider's value
+var sliderValueMin = 1535;
+var sliderValueMax = 1800;
+
+//stores names of books included and a reference to the place that included them
+var currentlyIncluded = {};
+
+//stores the voronoi stuff
+var positions = [];
+
+//stores the locations
+var locationsCurrentlyIncluded = [];
+
+//represents whether or not the slider is currently moving
+var sliding = false;
+
+//The time lapses between slider rendering
+var slideInterval = 300;
+
+//if books are being shown right now in the searched box- then the first element in this list is true and the second is the location (as a d object) of the books shown
+var showingBooks = [];
+
+//the first and final years
+var maxYear = 1800;
+//1667
+var minYear = 1535;
+
+//This jQuery code initializes the slider
+$(document).ready(function(){
+    $("#slider").slider({ values: [sliderValueMin,sliderValueMax]});
+    $("#slider").slider({ min: minYear});
+    $("#slider").slider({ max: maxYear});
+    //leftmost element label
+    $( "#labelDiv" ).append($('<label id="leftLabel">'+(sliderValueMin)+'</label>').css("float","left"));
+    $( "#labelDiv" ).append($('<label id="rightLabel">'+(sliderValueMax)+'</label>').css("float","right"));
+    $("#slider").on( "slidechange", function(event,ui) {
+        Minimum = $("#slider").slider("values",0);
+        Maximum = $("#slider").slider("values",1);
+        sliderValueMin = Math.min(Minimum,Maximum);
+        sliderValueMax = Math.max(Minimum,Maximum);
+        document.getElementById("leftLabel").innerHTML = sliderValueMin;
+        document.getElementById("rightLabel").innerHTML = sliderValueMax;
+        //leftLabel = $('<label class="slider_label">'+(sliderValueMin)+'</label>').css("float","left");
+        //rightLabel = $('<label class="slider_label">'+(sliderValueMax)+'</label>').css("float","right");;
+        updateCurrentlyIncluded();
+        //update the books shown
+        if (showingBooks[0]){showBooks(showingBooks[1]);}
+        drawVoronoiAndCircles(false);
+    });
+});
+
+//this function responds to changes of the show voronoi checkbox - all of the voronoi lines are in the 
+//cells class
+d3.select("input[type=checkbox]").on("change", function() {
+    toggleShowing();
+});
+
+//toggles whther or not the voronoi are shown in response to a click on the show voronoi button
+function toggleShowing() {
+    if (showing) {
+        cells.attr("stroke-opacity",0);
+        showing = false;
+    } else {
+        cells.attr("stroke-opacity",1);
+        showing = true;
+    };
+}
+
+//Here we define the code to draw the projection of the Map onto the screen
+function drawProjection() {
+    states.selectAll("path").remove();
+    d3.json('{{url_for('static', filename="data/world-countries.json")}}', function(collection) {
+        states.selectAll("path")
+            .data(collection.features)
+            .enter()
+            .append("svg:path")
+            .attr("d", path);
+    });
+}
+
+//This function draws the voronoi lines and the circles onto the screen
+//An input of true means that new circles are drawn too
+//An input of false means that no new circles are drawn
+//The new input is only used when the screen is first created or when the map is moved and the circle's location must be changed
+function drawVoronoiAndCircles(drawCircles){
+    //Here we empty things out to facilitate redrawing
+    cells.selectAll("g").remove();
+    //reset the arrays
+    positions.length = 0;
+    locationsCurrentlyIncluded.length = 0;
+
+    d3.json('{{url_for('static', filename="data/JosiahSliderData.json")}}', function(locations) {
+        locations.rows.forEach(function(d,i) {
+            //if this location has some books in it, lets add it to the positions array and consider it when drawing the voronoi
+            if (typeof currentlyIncluded[simplifyString(d.Name)] != "object"){
+                currentlyIncluded[simplifyString(d.Name)] = []
+            }
+            if (currentlyIncluded[simplifyString(d.Name)].length > 0) {
+                locationsCurrentlyIncluded.push(d)
+                var xy = d.coordinates;
+                positions.push(projection(xy));
+            }
+        });
+        polygons = d3.geom.voronoi(positions);
+
+       //ASSIGNS TO THE VARIABLE g A CONTAINER FOR EACH OF THE LOCATIONS
+        g = cells.selectAll("g")
+            .data(locationsCurrentlyIncluded)
+            .enter()
+            .append("svg:g");
+
+        //DRAWS THE VORONOI POLYGONS
+        g.append("svg:path")
+            .attr("class", "cell")
+            .attr("d", function(d, i) {
+                //m - pen down
+                //polygons[i],join('L') - draw lines joining each point in polygons[i]
+                //z - pen up
+                if (i<polygons.length) {
+                    return "M" + polygons[i].join("L") + "Z";
+                }
+            });
+
+        if (drawCircles){
+            //remove all existing circles
+            circles.selectAll("circle").remove();
+            //draw some new ones
+            circles.selectAll("circle")
+                .data(locations.rows
+                //the circles' locations are determined here
+                .sort(function(a, b) { return b.TotalPublished - a.TotalPublished; }))
+                .enter()
+                .append("circle")
+                .attr("transform", function(d,i) { 
+                    //the circles' final sizes are determined here
+                    return "translate(" + projection(d.coordinates) + ")"; })
+                    //Here we assign a class to the circle, which allows us to select it and change its color on mouseover later
+                .attr('id',function(d,i){
+                    //first we assign an id. 
+                    var id = simplifyString(d.Name);
+                    // store the value in the placeArray
+                    placeArray[i] = [id,currentlyIncluded[simplifyString(d.Name)].length,d.Name,d];
+                    return id;
+                })
+                .attr("r",0);
+        }
+
+        cells.selectAll("g").selectAll("path")
+            .on("mouseover", function(d, i) { 
+                    if (!showingBooks[0]){
+                    //first we change the contents of the text box to the current location and the total published there
+                    fillSearchBox(d.Name + ": " + format(currentlyIncluded[simplifyString(d.Name)].length));
+                    //first we lock onto the correct circle's id
+                    Tid = simplifyString(d.Name);
+                    //then we change all of the other circles back to normal
+                    d3.selectAll('circle')
+                        .style("fill","steelblue")
+                        .style('stroke','darkblue');
+                    //then we actually change the color of the circle
+                    d3.select('#' + Tid)
+                        .style("fill","darkred")
+                        .style("stroke","darkred");
+                    }
+            })
+            .on("click",function(d,i){    
+                if (!showingBooks[0]){
+                    //show the loading indicator
+                    showBooks(d);
+                } else{
+                    showingBooks[0] = false;
+                    showingBooks[1].length = 0;
+                }
+            });
+        //Here we uncheck the checkbox and hide the voronoi diagram
+        document.getElementById("voronoi").checked = false;
+        showing = true;
+        toggleShowing();
+        //this function defined below - it causes the dots to appear
+        if (!sliding){
+            Appear(appearDuration);
+        }else{
+            Appear(slideInterval);
+        }
+    });
+}
+
+//this replaces the contents of the searchedBox with the corresponding place's books/dates
+function showBooks(d){
+    fillSearchBox(d.Name + ": " + format(currentlyIncluded[simplifyString(d.Name)].length));
+    searchedBox.innerHTML += "</br>-------------------------------------</br>";
+    //By using a placeholder variable htmlString - we can avoid calling innerHTML too many times
+    htmlString = ""
+    for (var bookArray in currentlyIncluded[simplifyString(d.Name)]){
+        htmlString += (currentlyIncluded[simplifyString(d.Name)][bookArray][0] + " : " + currentlyIncluded[simplifyString(d.Name)][bookArray][1]);
+        htmlString += "</br>";
+    }
+    searchedBox.innerHTML += htmlString
+    showingBooks[0] = true;
+    showingBooks[1] = d;
+}
+
+//some regular expression magic to remove all spaces and commas from the Name id, and to make all letters lowercase
+function simplifyString(string){
+    string = string.replace(/ /g,'');
+    string = string.replace(",",'');
+    string = string.replace("&",'');
+    string = string.replace(".",'');
+    string = string.replace("-",'');
+    string = string.toLowerCase();
+    return string;
+}
+
+//This function changes the projectionScale and calls draw. If number is 1, it zooms in. If number is -1, it zooms out
+function Zoom(number){
+    projectionScale = projectionScale*(Math.pow(1.5,number));
+    Draw();
+}
+
+//This function adjusts the rotation coordinates based on the button click and calls draw
+function Pan(direction){
+    if (direction == 'Left') {
+        rotX = rotX + 3;
+    } else if (direction == 'Right') {
+        rotX = rotX - 3;
+    } else if (direction == 'Up') {
+        rotY = rotY - 3;
+    } else if (direction == 'Down') {
+        rotY = rotY + 3;
+    }
+    Draw();
+}
+
+//This function moves the slider at a fixed pace. The sliding can be stopped midway through by setting the variable sliding to false. If typeThree, the slider slides based on its initial values
+function slide(leftSlide,rightSlide,typeThree){
+    sliding ^= true;
+    if (sliding==true){
+        //change the text on the slide button
+        document.getElementById("singleSlideButton").innerHTML = "Click to Stop";
+        document.getElementById("doubleSlideButton").innerHTML = "Click to Stop";
+        document.getElementById("setSlideButton").innerHTML = "Click to Stop";
+        $(document).ready(function(){
+            //set initial values
+            if (!typeThree){$("#slider").slider({ values:[minYear,minYear + 80-(rightSlide-leftSlide)*(80/rightSlide)]});}
+            //clear the map
+            Appear(0);
+            //increment the slider values after a short delay - kind of like a timer in java or a game loop in pygame
+            timer  = setInterval(function(){
+                sliderValueMax += rightSlide ;
+                sliderValueMin += leftSlide;
+                //set the slider's values with JQuery
+                $("#slider").slider({ values:[sliderValueMin,sliderValueMax]});
+                //check is the slider has finished yet
+                if (sliderValueMax > maxYear-1 || sliding == false) {
+                    clearTimeout(timer);
+                    sliding = false;
+                    //change the text back
+                    document.getElementById("singleSlideButton").innerHTML = "Single Slide";
+                    document.getElementById("doubleSlideButton").innerHTML = "Double Slide";
+                    document.getElementById("setSlideButton").innerHTML = "Set Slide";
+                }
+            },slideInterval);
+        });
+    }
+}
+
+//this function resets the zoom and rotation and calls draw
+function Reset(){
+    projectionScale = 400;
+    rotX = 90;
+    rotY = -20;
+    Draw();
+}
+
+//This function draws everything onto the screen
+function Draw(){
+    projection = projection
+        .scale(projectionScale)
+        .rotate([rotX,rotY]);
+    path = path.projection(projection);
+    drawProjection();
+    drawVoronoiAndCircles(true);
+}
+
+//this function tests membership in an array
+function Contains(array, element){
+    for (var i = 0; i < array.length; i++){
+        if (array[i].Name == element.Name){
+            return true;
+        }
+    }
+    return false;
+}
+
+//This function causes the dots to appear, and also changes the circles' sizes
+function Appear(duration){
+    //after all of circle objects have been added to the #state-centroids g element and translated to their correct location on the xy projection we apply a transition to the place variable, which points to all of the circles in #state-centroids. Remember, the circles are contained by the #state-centroids g element and are represented by the place variable
+    circles.selectAll('circle').transition()
+        //The transition takes one second
+        .duration(duration)
+        //When we apply the transition to the place variable, we automatically iterate through each element in place. As such, the d below corresponds to the circle element in place, and i corresponds to d's index in place. 
+        //Here we add a delay to each circle element in place. Remember, since the circles were added in reverse size order, from largest to smallest, the larger printing presses appear first (i is smaller for larger printing presses)
+        .delay(function(d, i) { return i * duration/500; })
+        //Here we add the real magic - we set the radius of the circle element to the sqrt of the TotalPublished in the printing press object that the circle element corresponds to
+        .attr("r", function(d) { 
+         //if there are no books at that place in the current parameter window - radius is 0
+            if (currentlyIncluded[simplifyString(d.Name)].length === 0){
+                return 0;
+            } else {
+                //if there are books at that place in the current window - radius is proportional to number of books
+                return r(currentlyIncluded[simplifyString(d.Name)].length*10);
+            };
+        });
+}
+
+//this function updates the currently included object's location (d) propery based on the current slider positon
+function updateCurrentlyIncluded(){
+    d3.json('{{url_for('static', filename="data/JosiahSliderData.json")}}', function(d) {
+        d.rows.forEach(function(d,i) {
+            //If the slider parameter is large enough, then we show the circle
+            //initialize the currentlyIncluded object's d property - this is an array of arrays - each array in the array contains a book and its year of publication, and the array of arrays belongs to the location (d)
+            if (typeof currentlyIncluded[simplifyString(d.Name)] == "object"){
+                currentlyIncluded[simplifyString(d.Name)].length = 0;
+            } else {
+                currentlyIncluded[simplifyString(d.Name)] = []
+            }
+            for (var number in d["bookTitles"]) {
+                key = d["bookTitles"][number];
+                if (d.SliderDict[key] > sliderValueMax){
+                    break;
+                } else if (d.SliderDict[key] < sliderValueMax && d.SliderDict[key] > sliderValueMin){
+                    //add an array containing this book and the year it was published to the spot in the currentlyIncluded Object
+                    currentlyIncluded[simplifyString(d.Name)].push([key,d.SliderDict[key]]);
+                }
+            }
+        })
+    })
+}
+
+//This function iterates over the placeArray to find the term that most matches the input
+function Search(){
+    //first we change all of the other circles back to normal
+    d3.selectAll('circle')
+        .style("fill","steelblue")
+        .style('stroke','darkblue');
+    //then we get the correct search value
+    value = simplifyString(searchBox.value);
+    //then we clear the div
+    fillSearchBox('');
+    //then we simply iterate over the array
+    searchedBoxString = ""
+    for (var i=0;i<placeArray.length;i++){
+        //if the search term is in the name of the place
+        if (placeArray[i][0].search(value) != -1){
+            d3.select('#' + placeArray[i][0])
+                .style("fill","red")
+                .style("stroke","red");   
+            searchedBoxString += (placeArray[i][2] + ": " + currentlyIncluded[simplifyString(placeArray[i][2])].length + "</br>");
+        }
+    }
+    searchedBox.innerHTML += searchedBoxString
+}
+
+//this function sets the variable showingBooks and fills the searchedBox
+function fillSearchBox(string){
+    showingBooks.length = 0;
+    searchedBox.innerHTML = string;
+}
+
+
+//Here we actually draw the projection, voronoi, and circles
+//Set the initial d values
+updateCurrentlyIncluded();
+Draw();
+$(document).ready(function(){
+    $("#slider").slider({ values:[sliderValueMin,sliderValueMax]});
+});
+
+
+            </script>
+
+{% endblock %}

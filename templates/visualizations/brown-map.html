@@ -1,0 +1,375 @@
+{% extends "base.html"%}
+{% block title %}Hay and JCB Map{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+    <style type="text/css">
+
+
+#words {
+  margin-left: 160px;
+}
+
+h1 {
+   color: #333;
+}
+
+a {
+    color: #333;
+    font-weight: bold;
+    text-decoration:none;
+}
+
+text {
+  font: 10px sans-serif;
+}
+
+
+#states path {
+  fill: #ccc !important;
+  stroke: #ccc !important;
+  pointer-events: none;
+}
+
+#circles circle {
+    fill: steelblue;
+    stroke: darkblue;
+    stroke-width: 1px;
+    padding: 2px;
+    fill-opacity: .8;
+}
+
+#Buttons {
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    color: darkblue;
+    font-size: 24;
+    opacity: 1;
+    bottom:0;
+    display: inline;
+    float: left;
+    width: 350px;
+}
+
+#Buttons button {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: .8em;
+    color: #333;
+    padding: 5px;
+    background-color: #eee;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+#searchedBox {
+    height: 120px;
+    width: 250px;
+    overflow:scroll;
+    margin-left: 360px;
+    margin-bottom: 5px;
+    color: darkred;
+}
+
+path {
+    pointer-events: all;
+}
+
+
+    </style>
+{% endblock %} <!-- end scripts in header -->
+
+{% block content%}
+        <div>
+            <h2>Map of Hay & John Carter Brown Libraries New World Collections, before 1801</h2>
+            <p>This map shows the location of printed material from the New World, before 1800, held in the Special Collections of the two main Special Collections Libaries on the Brown University Campus, <a target="_blank" href="http://library.brown.edu/">The Brown University Library</a> and <a target="_blank" href="http://www.brown.edu/academics/libraries/john-carter-brown/">The John Carter Brown Library</a>.</p>
+            <p>You can interact with this visualization in several ways:</p>
+            <ul>
+                <li>Mouse over the map to see the full name of the nearest place and the number of works at Brown published there.</li>
+                <li> Use the buttons below to zoom and pan across the map </li>
+                <li>If you want to see how the mouseover chooses a location, click the "show Voronoi" check box.  It will display the lines of the <a href="http://en.wikipedia.org/wiki/Voronoi_diagram">Voronoi Polygons</a>.  In one sense, they lines also demarcate "zones of printing" around each location.  The current alogrithm does not take geopgraphy or the road network into account but still provides a useful overview.</li>
+                <li>You can search for locations (but not books) by name in the search bar.</li>
+            </ul>
+            <p>Built with the <a target="_blank" href="http://d3js.org">d3.js</a> javascript library. </p>
+        </div>
+
+        <div id="Buttons" class="inline">
+            Search <input id="searchBox" type="textbox" id ="text"> </input>
+            <button onclick="Search()" style="opacity:1;"> Go! </button> 
+            </br>
+            <input type="checkbox" id="voronoi"><label for="voronoi">show Voronoi </label>
+            </br>            
+            <button onclick="Zoom()" style="opacity:1;"> Zoom </button>   
+            <button onclick="Reset()" style="opacity:1;"> Reset </button>    
+            </br>
+            <button onclick="Pan('Left')" style="opacity:1;"> Pan Left </button>   
+            <button onclick="Pan('Right')" style="opacity:1;"> Pan Right </button> 
+            <button onclick="Pan('Up')" style="opacity:1;"> Pan Up  </button>   
+            <button onclick="Pan('Down')" style="opacity:1;"> Pan Down </button>    
+        </div>
+        <div id="searchedBox"> </div>
+        <div id="wrapper">
+            <div id="svgWrapper"> </div>
+        </div>
+
+        <script type="text/javascript">
+
+var w = 900,
+    h = 1000;
+
+//this variable encodes the size of the Map that is drawn
+var projectionScale = 400;
+
+// The radius scale for the circles.
+var r = d3.scale.sqrt()
+    .domain([0, 1e3])
+    .range([1, 10]);
+
+
+var format = d3.format(",d");
+
+// Our map projection and the specifications that make it appear the way that it initially does
+var projection = d3.geo.orthographic()
+    .scale(projectionScale)
+    .rotate([90,-20])
+    .clipAngle(65);
+
+//The set of paths that draw the projection
+var path = d3.geo.path()
+    .projection(projection);
+
+//The svg element that holds the map projection and the circles
+var svg = d3.select("#svgWrapper")
+    .append("svg:svg", "h2")
+    .attr("width", w)
+    .attr("height", h);
+
+//The container element that holds the paths that draw the map
+var states = svg.append("svg:g")
+    .attr("id", "states");
+
+//The container element that holds the circles
+var circles = svg.append("svg:g")
+    .attr("id", "circles");
+
+//The container element that holds the voronoi paths
+var cells = svg.append("svg:g")
+    .attr("id", "cells")
+    .attr('fill','none')
+    .attr('stroke','#666')
+    .attr('stroke-opacity',0);
+
+//this variable determines whether or not the voronoi lines are showing
+var showing = false;
+
+//This array of arrays will store the id and total published of each location. A typical entry will be [d.Name,d.totalPublished]
+var placeArray = [];
+
+//this variable stores the current mouse position - this variable is set every time the mouse goes down and drags are sensed by the difference btween mouse position and this variable
+var mousePosition = [0,0];
+var newMousePosition = [0,0];
+//This variable stores the boolean value of whether or not the mouse is pressed
+//These values store the rotation values
+var rotX = 90;
+var rotY = -20;
+//this variable stores a reference to the box that holds the text about the locations
+var searchedBox = document.getElementById("searchedBox");
+//this variable stores a reference to the box that you type search terms into
+var searchBox = document.getElementById("searchBox");
+
+
+//this function responds to changes of the show voronoi checkbox - all of the voronoi lines are in the 
+//cells class
+d3.select("input[type=checkbox]").on("change", function() {
+    toggleShowing();
+});
+
+function toggleShowing() {
+    if (showing) {
+        cells.attr("stroke-opacity",0);
+        showing = false;
+    } else {
+        cells.attr("stroke-opacity",1);
+        showing = true;
+    };
+}
+
+//Here we define the code to draw the projection of the Map onto the screen
+function drawProjection() {
+    states.selectAll("path").remove();
+    
+    d3.json('{{url_for('static', filename="data/world-countries.json")}}', function(collection) {
+        states.selectAll("path")
+            .data(collection.features)
+            .enter()
+            .append("svg:path")
+            .attr("d", path);
+    });
+}
+
+//This function draws the voronoi lines and the circles onto the screen
+function drawVoronoiAndCircles(){
+    //Here we empty things out to facilitate redrawing
+    cells.selectAll("g").remove();
+    circles.selectAll("circle").remove();
+    d3.json('{{url_for('static', filename="data/2014-05-05-Brown-publishing-locations-and-totals.json")}}', function(locations) {
+        positions = [];
+
+        locations.rows.forEach(function(location,i) {
+            var xy = location.coordinates;
+            positions.push(projection(xy));
+        });
+
+        polygons = d3.geom.voronoi(positions);
+
+       //ASSIGNS TO THE VARIABLE g A CONTAINER FOR EACH OF THE LOCATIONS
+        g = cells.selectAll("g")
+            .data(locations.rows)
+            .enter()
+            .append("svg:g");
+
+        //DRAWS THE VORONOI POLYGONS
+        g.append("svg:path")
+            .attr("class", "cell")
+            .attr("d", function(d, i) {
+                //m - pen down
+                //polygons[i],join('L') - draw lines joining each point in polygons[i]
+                //z - pen up
+                return "M" + polygons[i].join("L") + "Z";
+            });
+
+        circles.selectAll("circle")
+            .data(locations.rows
+            //the circles' locations are determined here
+            .sort(function(a, b) { return b.TotalPublished - a.TotalPublished; }))
+            .enter()
+            .append("circle")
+            .attr("transform", function(d,i) { 
+                //the circles' final sizes are determined here
+                return "translate(" + projection(d.coordinates) + ")"; })
+              //Here we assign a class to the circle, which allows us to select it and change its color on mouseover later
+            .attr('id',function(d,i){
+                //first we assign an id. 
+                var id = simplifyString(d.Name);
+                // store the value in the placeArray
+                placeArray[i] = [id,d.TotalPublished,d.Name];
+                return id;
+            })
+            .attr("r",0);
+
+        cells.selectAll("g").selectAll("path")
+            .on("mouseover", function(d, i) { 
+                //on the mouseover we change the contents of the printingpress span
+                searchedBox.innerHTML = (d.Name + ": " + format(d.TotalPublished));
+                //we also change the color of the corresponding circle
+                //first we lock onto the correct circle's id
+                Tid = simplifyString(d.Name);
+                //then we change all of the other circles back to normal
+                d3.selectAll('circle')
+                    .style("fill","steelblue")
+                    .style('stroke','darkblue');
+                //then we actually change the color of the circle
+                d3.select('#' + Tid)
+                    .style("fill","darkred")
+                    .style("stroke","darkred");
+            });
+        //Here we uncheck the checkbox and hide the voronoi diagram
+        document.getElementById("voronoi").checked = false;
+        showing = true;
+        toggleShowing();
+        //this function defined below - it causes the dots to appear
+        Appear();
+    });
+}
+
+//some regular expression magic to remove all spaces and commas from the Name id, and to make all letters lowercase
+function simplifyString(string){
+    string = string.replace(/ /g,'');
+    string = string.replace(",",'');
+    string = string.replace("&",'');
+    string = string.replace(".",'');
+    string = string.replace("-",'');
+    string = string.toLowerCase();
+    return string;
+}
+
+
+
+//This function increases the projectionScale and calls draw
+function Zoom(){
+    projectionScale = projectionScale*1.5;
+    Draw();
+}
+
+//This function adjusts the rotation coordinates based on the button click and calls draw
+function Pan(direction){
+    if (direction == 'Left') {
+        rotX = rotX + 3;
+    } else if (direction == 'Right') {
+        rotX = rotX - 3;
+    } else if (direction == 'Up') {
+        rotY = rotY - 3;
+    } else if (direction == 'Down') {
+        rotY = rotY + 3;
+    }
+    Draw();
+}
+
+//this function resets the zoom and rotation and calls draw
+function Reset(){
+    projectionScale = 400;
+    rotX = 90;
+    rotY = -20;
+    Draw();
+}
+
+//This function draws everything onto the screen
+function Draw(){
+    projection = projection
+        .scale(projectionScale)
+        .rotate([rotX,rotY]);
+    path = path.projection(projection);
+    drawProjection();
+    drawVoronoiAndCircles();
+}
+
+//This function causes the dots to appear
+function Appear(){
+    //after all of circle objects have been added to the #state-centroids g element and translated to their correct location on the xy projection we apply a transition to the place variable, which points to all of the circles in #state-centroids. //Remember, the circles are contained by the #state-centroids g element and are represented by the place variable
+    circles.selectAll('circle').transition()
+        //The transition takes one second
+        .duration(1000)
+        //When we apply the transition to the place variable, we automatically iterate through each element in place. As such, the d below corresponds to the circle element in place, and i corresponds to d's index in place. 
+        //Here we add a delay to each circle element in place. Remember, since the circles were added in reverse size order, from largest to smallest, the larger printing presses appear first (i is smaller for larger printing presses)
+        .delay(function(d, i) { return i * 20; })
+        //Here we add the real magic - we set the radius of the circle element to the sqrt of the TotalPublished in the printing press object that the circle element corresponds to
+        .attr("r", function(d) { return r(d.TotalPublished); });
+}
+
+//This function iterates over the placeArray to find the term that most matches the input
+function Search(){
+    //first we change all of the other circles back to normal
+    d3.selectAll('circle')
+        .style("fill","steelblue")
+        .style('stroke','darkblue');
+    //then we get the correct search value
+    value = simplifyString(searchBox.value);
+    //then we clear the div
+    searchedBox.innerHTML = '';
+    //then we simply iterate over the array
+    for (var i=0;i<placeArray.length;i++){
+        if (placeArray[i][0].search(value) != -1){
+            d3.select('#' + placeArray[i][0])
+                .style("fill","darkred")
+                .style("stroke","darkred");   
+        searchedBox.innerHTML += (placeArray[i][2] +": " + placeArray[i][1]);
+        searchedBox.innerHTML += "</br>";
+        }
+    }
+}
+
+//Here we actually draw the projection, voronoi, and circles
+drawProjection();
+drawVoronoiAndCircles();
+
+    </script>
+{% endblock %} <!-- end content block -->
