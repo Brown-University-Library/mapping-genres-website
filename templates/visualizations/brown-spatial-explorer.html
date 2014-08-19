@@ -7,7 +7,7 @@
     <script src='{{url_for('static', filename="jQuery/js/jquery-ui-1.10.3.custom.js")}}'></script>
     <link href='{{url_for('static', filename="jQuery/css/ui-lightness/jquery-ui-1.10.3.custom.css")}}' rel="stylesheet">
 
-        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
         <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
         <style type="text/css">
 
@@ -47,9 +47,9 @@ a {
 #slider_buttons_div {
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
-    color: darkblue;
+   color: darkblue;
     top:30%;
-    position: fixed;
+     position: fixed;
     height: 120px;
     width: 260;
     z-index: 100;
@@ -126,12 +126,8 @@ a {
                     </br>
                     <button id="slider_end_button" onclick="set_slider()" style="opacity:1;"> Set Right: </button> 
                     <input id="slider_end_box" type="textbox" id ="text" style=" width:50px" value="1800"> </input>
-                    </br> 
                     <div id="slider"> </div> 
-                    </br>
-                    </br>
-                    </br>
-                    </br>
+                    <br>
                     <div style="float:right">
                         Library:</br>
                         <label> <input type="checkbox" id="Hay_Check" onchange="check_classifier()" checked> Hay </label> </br>
