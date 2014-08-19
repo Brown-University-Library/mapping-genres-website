@@ -27,6 +27,10 @@ def first_brown_map():
 def first_brown_slider():
 	return render_template('visualizations/first-brown-slider.html')
 
+@app.route('/visualizations/brown-spatial-explorer')
+def brown_spatial_explorer():
+	return render_template('visualizations/brown-spatial-explorer.html')
+
 #These routes are redirects from the URL structure of the old site
 @app.route("/symbol-maps/hay-jcb-voronoi.html")
 def old_maps1():
