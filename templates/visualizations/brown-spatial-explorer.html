@@ -36,6 +36,17 @@ a {
     text-decoration:none;
 }
 
+
+button {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: .6em;
+    color: #333;
+    padding: 5px;
+    background-color: #eee;
+    -moz-border-radius:10px;
+    border-radius: 10px;
+}
+
 #searchedBox {
     height: 200px;
     width:300px;
@@ -48,22 +59,22 @@ a {
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
    color: darkblue;
-    top:30%;
+    top:50%;
      position: fixed;
     height: 120px;
     width: 260;
     z-index: 100;
-    right: 0%;
+    right: 5%;
 }
 
 #slider {
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
     color: darkblue;
-    top:45%;
+    top:60%;
     position: fixed;
     z-index: 100;
-    right: 1%;
+    right: 5%;
     height: 10px;
     width: 260px;
     margin-top: 10px;
@@ -73,23 +84,23 @@ a {
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
     color: darkblue;
-    top:50%;
+    top:65%;
     position: fixed;
     z-index: 100;
-    right: 0%;
+    right: 5%;
     height: 10px;
     width: 275px;
     margin-top: 10px;
 }
 .fixedDiv {
-    top: 30%;
-    left:0%;
+    top: 65%;
+    left:5%;
     position: fixed;
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
     color: darkblue;
     height: 120px;
-    width: 150px;
+    width: 300px;
     z-index:100;
 }
 
@@ -127,8 +138,10 @@ a {
                     <button id="slider_end_button" onclick="set_slider()" style="opacity:1;"> Set Right: </button> 
                     <input id="slider_end_box" type="textbox" id ="text" style=" width:50px" value="1800"> </input>
                     <div id="slider"> </div> 
-                    <br>
-                    <div style="float:right">
+                    <div id="labelDiv" position:"absolute"></div>
+                </div>
+                <div class="fixedDiv" align:"center">
+                    <div>
                         Library:</br>
                         <label> <input type="checkbox" id="Hay_Check" onchange="check_classifier()" checked> Hay </label> </br>
                         <label> <input type="checkbox" id="JCB_Check" onchange="check_classifier()" checked>JCB</label> </br>
@@ -136,16 +149,13 @@ a {
                         <label> <input type="checkbox" id="English" onchange="check_classifier()" checked> English </label> </br>
                         <label> <input type="checkbox" id="Spanish" onchange="check_classifier()" checked> Spanish</label> </br> -->
                     </div>
-                </div>
-                <div id="labelDiv" position:"absolute"></div>
-                <div class="fixedDiv" align:"center">
                     <div id="Buttons" align:"center">
                         Search: </br>
                         <input id="searchBox" type="textbox" id ="text"> </input>
                         </br>
 
-                        <button class = "search_button" onclick="Search('place')" > By Place </button> </br>
-                        <button class = "search_button" onclick="Search('book')"> By Book </button> </br>
+                        <button class = "search_button" onclick="Search('place')" > By Place </button>
+                        <button class = "search_button" onclick="Search('book')"> By Book </button>
                         <button class = "search_button" onclick="Search('author')"> By Author </button> </br>
                         <input type="checkbox" id="voronoi"> <label for="voronoi"> show Voronoi </label>
                         </br>
